@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beloved Billiard Hall</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glow-green {
+            box-shadow: 0 0 30px rgba(16, 185, 129, .3);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white">
+
+    <!-- NAVBAR -->
+
+    <nav class="fixed top-0 w-full bg-black/40 backdrop-blur border-b border-white/10 z-50">
+
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-xl font-bold text-emerald-400">
+                Beloved Billiard
+            </h1>
+
+            <div class="hidden md:flex gap-10 text-sm font-medium uppercase tracking-widest">
+                <a href="#home" class="hover:text-emerald-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#rates" class="hover:text-emerald-400 transition-colors">Rates</a>
+                <a href="#gallery" class="hover:text-emerald-400 transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+            </div>
+
+            <button onclick="window.location.href='player.html'"
+                class="hidden sm:block text-xs font-bold border border-emerald-500/50 px-5 py-2 rounded-full hover:bg-emerald-500 hover:text-black transition-all">
+                RESERVE NOW
+            </button>
+
+        </div>
+
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center text-center px-6
+bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900">
+
+        <div>
+
+            <div class="text-center mb-8 sm:mb-10">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-3xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center glow-green mb-4">
+
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="3" />
+
+                    </svg>
+
+                </div>
+
+                <span
+                    class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.3em] uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">
+                    The Ultimate Cuesports Experience
+                </span>
+
+                <h1
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
+                    Beloved Billiard Hall
+                </h1>
+
+            </div>
+
+
+            <p class="text-slate-300 max-w-xl mx-auto mb-8">
+                Experience precision play on professional-grade Diamond tables. Whether you're a shark or a beginner,
+                Beloved is your home for the perfect break.
+            </p>
+
+            <button onclick="window.location.href='player.html'"
+                class="bg-emerald-500 px-8 py-3 rounded-lg text-lg hover:bg-emerald-600">
+
+                Book a Table
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="py-24 px-6 bg-slate-950">
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+            <div>
+
+                <h2 class="text-3xl font-bold mb-4 text-emerald-400">
+                    About Our Hall
+                </h2>
+
+                <p id="aboutText" class="text-slate-300 leading-relaxed">
+                </p>
+
+            </div>
+
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-emerald-500"></div>
+                <img src="assets/billiard.jpg" alt="about image">
+                <div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-xl">
+                    <p id="tableNumber" class="text-emerald-400 text-2xl font-bold"></p>
+                    <p class="text-xs uppercase tracking-tighter">Pro Tables</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RATES -->
+
+    <section id="rates" class="min-h-screen flex items-center justify-center text-center px-6
+bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900">
+
+        <div class="max-w-5xl mx-auto text-center">
+
+            <h2 class="text-3xl font-bold mb-4 text-emerald-400">Pricing</h2>
+
+            <div class="glass rounded-2xl p-8 hover:scale-105 transition">
+                <div
+                    class="absolute top-0 right-0 bg-emerald-500 text-slate-950 text-[10px] font-black px-4 py-1 rounded-bl-xl rounded-tr-3xl uppercase">
+                    Available Now
+                </div>
+                <h3 class="text-slate-400 uppercase tracking-widest text-sm mb-4">Standard Rate</h3>
+                <div class="flex justify-center items-baseline gap-1">
+                    <span id="priceRate" class="text-5xl font-black text-white"></span>
+                    <span class="text-slate-500 text-xl">/hr</span>
+                </div>
+                <hr class="my-8 border-white/5">
+                <p class="text-slate-400 text-sm italic mb-8">Includes access to all house cues and rest equipment.</p>
+                <button onclick="window.location.href='player.html'"
+                    class="bg-emerald-500 px-8 py-3 rounded-lg text-lg hover:bg-emerald-600">
+                    Reserve This Table
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section id="gallery" class="py-24 bg-slate-950 px-6">
+
+        <div class="max-w-6xl mx-auto">
+
+            <h2 class="text-3xl font-bold text-center text-emerald-400 mb-12">
+                Gallery
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery1.jpg" alt="gal1 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery2.jpg" alt="gal2 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery3.jpg" alt="gal3 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery4.jpg" alt="gal4 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery5.jpg" alt="gal5 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery6.jpg" alt="gal6 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery7.jpg" alt="gal7 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery8.jpg" alt="gal8 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+                <div
+                    class="overflow-hidden rounded-xl shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 group">
+                    <img src="assets/gallery9.jpg" alt="gal9 image"
+                        class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="py-24 px-6">
+
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="text-3xl font-bold mb-4 text-emerald-400">Location & Hours</h2>
+            <div class="grid sm:grid-cols-2 gap-10">
+                <div class="glass rounded-2xl p-8 hover:scale-105 transition">
+                    <h4 class="text-emerald-400 font-bold mb-4">Visit Us</h4>
+                    <p id="locationAddress" class="text-slate-400 mb-2"></p>
+                    <p id="contactNumber" class="text-slate-400"></p>
+                </div>
+                <div class="glass rounded-2xl p-8 hover:scale-105 transition">
+                    <h4 class="text-emerald-400 font-bold mb-4">Opening Hours</h4>
+                    <p id="openingHours" class="text-slate-400 mb-2 font-mono"></p>
+                </div>
+            </div>
+            <p class="mt-20 text-slate-600 text-xs tracking-widest uppercase">
+                &copy; 2026 Beloved Billiard Hall. All Rights Reserved.
+            </p>
+        </div>
+
+    </section>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, getDoc }
+            from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "YOUROWNAPIKEY",
+            authDomain: "YOUROWNAUTHDOMAIN",
+            projectId: "YOUROWNPROJECTID",
+            storageBucket: "YOUROWNSTORAGEBUCKET",
+            messagingSenderId: "YOUROWNMESSAGINGSENDERID",
+            appId: "YOUROWNAPPID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let aboutText = "";
+        let priceRate = 100;
+        let tableNumber = 7;
+        let locationAddress = "";
+        let contactNumber = "";
+        let openingHours = "";
+
+        async function loadWebsiteSettings() {
+
+            const settingsRef = doc(db, "settings", "website");
+            const snap = await getDoc(settingsRef);
+
+            if (snap.exists()) {
+
+                const data = snap.data();
+
+                document.getElementById("aboutText").textContent = data.about;
+
+                document.getElementById("priceRate").textContent = "₱" + (data.price * 2);
+
+                document.getElementById("tableNumber").textContent = data.tables + "+";
+
+                document.getElementById("locationAddress").textContent = "📍 " + data.location;
+
+                document.getElementById("contactNumber").textContent = "📞 " + data.contact;
+
+                document.getElementById("openingHours").textContent = data.hours;
+            }
+        }
+
+        loadWebsiteSettings();
+    </script>
+
+</body>
+
+</html>

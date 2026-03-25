@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beloved Billiard Hall</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glow-green {
+            box-shadow: 0 0 30px rgba(16, 185, 129, .3);
+        }
+
+        .msg-transition {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        /* Prevent iOS height shrink */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: -webkit-fill-available;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="min-h-screen flex items-center justify-center 
+    bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 
+    text-white px-4 sm:px-6 py-8">
+
+    <div class="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+
+        <!-- Logo -->
+        <div class="text-center mb-8 sm:mb-10">
+            <div
+                class="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-3xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center glow-green mb-4">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+            </div>
+            <h1
+                class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
+                Beloved Billiard Hall
+            </h1>
+        </div>
+
+        <!-- Card -->
+        <div
+            class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8 md:p-10">
+
+            <!-- Tabs -->
+            <div class="flex gap-2 mb-6">
+                <button id="loginTab"
+                    class="flex-1 py-3 rounded-lg bg-emerald-500/20 text-emerald-400 font-medium">
+                    Sign In
+                </button>
+                <button id="signupTab"
+                    class="flex-1 py-3 rounded-lg text-slate-400 hover:text-white">
+                    Sign Up
+                </button>
+            </div>
+
+            <!-- SIGN IN FORM -->
+            <form id="loginForm">
+
+                <input type="email" id="loginEmail" placeholder="Email"
+                    class="w-full mb-4 px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-emerald-500 outline-none">
+
+                <div class="relative mb-3">
+                    <input type="password" id="loginPassword" placeholder="Password"
+                        class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-emerald-500 outline-none pr-12">
+
+                    <button type="button" id="toggleLoginPassword"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-emerald-400 transition">
+                        <svg id="loginEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between mb-6 text-sm">
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" id="rememberMe" class="accent-emerald-500">
+                        Remember me
+                    </label>
+                    <button type="button" id="forgotPassword"
+                        class="text-emerald-400 hover:underline">
+                        Forgot password?
+                    </button>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 font-semibold hover:opacity-90">
+                    Sign In
+                </button>
+            </form>
+
+            <!-- SIGN UP FORM -->
+            <form id="signupForm" class="hidden">
+
+                <input type="text" id="fullName" placeholder="Full Name"
+                    class="w-full mb-4 px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-emerald-500 outline-none">
+
+                <input type="email" id="signupEmail" placeholder="Email"
+                    class="w-full mb-4 px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-emerald-500 outline-none">
+
+                <div class="relative mb-4">
+                    <input type="password" id="signupPassword" placeholder="Password"
+                        class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-emerald-500 outline-none pr-12">
+                    <button type="button" id="toggleSignupPassword"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-emerald-400 transition">
+                        <svg id="signupEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="relative mb-6">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password"
+                        class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-emerald-500 outline-none pr-12">
+                    <button type="button" id="toggleConfirmPassword"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-emerald-400 transition">
+                        <svg id="confirmEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542-7z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 font-semibold hover:opacity-90">
+                    Create Account
+                </button>
+            </form>
+
+            <div id="authMessage"
+                class="mt-5 p-3 rounded-lg text-sm font-medium hidden msg-transition flex items-center gap-2"
+                role="alert">
+                <span id="messageIcon"></span>
+                <span id="messageText"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import {
+            getAuth,
+            setPersistence,
+            browserLocalPersistence,
+            browserSessionPersistence,
+            signInWithEmailAndPassword,
+            createUserWithEmailAndPassword,
+            sendPasswordResetEmail,
+            updateProfile
+        } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+        import {
+            getFirestore,
+            doc,
+            setDoc,
+            getDoc,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+        /* 🔥 INSERT YOUR FIREBASE CONFIG (replace with actual keys) */
+        const firebaseConfig = {
+            apiKey: "YOUROWNAPIKEY",
+            authDomain: "YOUROWNAUTHDOMAIN",
+            projectId: "YOUROWNPROJECTID",
+            storageBucket: "YOUROWNSTORAGEBUCKET",
+            messagingSenderId: "YOUROWNMESSAGINGSENDERID",
+            appId: "YOUROWNAPPID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // ----- DOM elements -----
+        const loginTab = document.getElementById("loginTab");
+        const signupTab = document.getElementById("signupTab");
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+
+        // message box
+        const msgBox = document.getElementById("authMessage");
+        const msgText = document.getElementById("messageText");
+        const msgIcon = document.getElementById("messageIcon");
+
+        // Input fields
+        const loginEmail = document.getElementById("loginEmail");
+        const loginPassword = document.getElementById("loginPassword");
+        const rememberMe = document.getElementById("rememberMe");
+        const forgotBtn = document.getElementById("forgotPassword");
+
+        // Signup fields
+        const fullName = document.getElementById("fullName");
+        const signupEmail = document.getElementById("signupEmail");
+        const signupPassword = document.getElementById("signupPassword");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        // ----- Password toggle icons -----
+        // login
+        const toggleLogin = document.getElementById("toggleLoginPassword");
+        const loginEyeIcon = document.getElementById("loginEyeIcon");
+        // signup password
+        const toggleSignup = document.getElementById("toggleSignupPassword");
+        const signupEyeIcon = document.getElementById("signupEyeIcon");
+        // confirm password
+        const toggleConfirm = document.getElementById("toggleConfirmPassword");
+        const confirmEyeIcon = document.getElementById("confirmEyeIcon");
+
+        // Store original eye SVGs for toggling
+        const eyeOpenSVG = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />`;
+
+        const eyeClosedSVG = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />`;
+
+        // helper: toggle visibility
+        function togglePasswordVisibility(inputField, eyeIcon) {
+            const newType = inputField.type === "password" ? "text" : "password";
+            inputField.type = newType;
+
+            // change icon
+            if (newType === "text") {
+                eyeIcon.innerHTML = eyeClosedSVG;
+            } else {
+                eyeIcon.innerHTML = eyeOpenSVG;
+            }
+        }
+
+        // add event listeners
+        toggleLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            togglePasswordVisibility(loginPassword, loginEyeIcon);
+        });
+
+        toggleSignup.addEventListener("click", (e) => {
+            e.preventDefault();
+            togglePasswordVisibility(signupPassword, signupEyeIcon);
+        });
+
+        toggleConfirm.addEventListener("click", (e) => {
+            e.preventDefault();
+            togglePasswordVisibility(confirmPassword, confirmEyeIcon);
+        });
+
+        // ----- Message box handler -----
+        function showMessage(text, type = "error") {
+            msgText.textContent = text;
+            msgBox.classList.remove("hidden", "bg-rose-500/20", "border-rose-500/40", "text-rose-300", "bg-emerald-500/20", "border-emerald-500/40", "text-emerald-300");
+
+            if (type === "error") {
+                msgBox.classList.add("bg-rose-500/20", "border", "border-rose-500/40", "text-rose-300");
+                msgIcon.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
+            } else {
+                msgBox.classList.add("bg-emerald-500/20", "border", "border-emerald-500/40", "text-emerald-300");
+                msgIcon.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
+            }
+            msgBox.classList.remove("hidden");
+        }
+
+        function hideMessage() {
+            msgBox.classList.add("hidden");
+        }
+
+        /* ---------------- TAB SWITCH ---------------- */
+        loginTab.onclick = () => {
+            loginForm.classList.remove("hidden");
+            signupForm.classList.add("hidden");
+            loginTab.classList.add("bg-emerald-500/20", "text-emerald-400");
+            signupTab.classList.remove("bg-emerald-500/20", "text-emerald-400");
+            hideMessage();
+        };
+
+        signupTab.onclick = () => {
+            signupForm.classList.remove("hidden");
+            loginForm.classList.add("hidden");
+            signupTab.classList.add("bg-emerald-500/20", "text-emerald-400");
+            loginTab.classList.remove("bg-emerald-500/20", "text-emerald-400");
+            hideMessage();
+        };
+
+        /* ---------------- SIGN IN ---------------- */
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            hideMessage();
+
+            try {
+                const persistence = rememberMe.checked
+                    ? browserLocalPersistence
+                    : browserSessionPersistence;
+
+                await setPersistence(auth, persistence);
+                const userCredential = await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
+                const uid = userCredential.user.uid;
+
+                const userDoc = await getDoc(doc(db, "users", uid));
+
+                if (!userDoc.exists()) {
+                    showMessage("User data not found in Firestore.");
+                    return;
+                }
+
+                const userData = userDoc.data();
+
+                if (userData.role === "admin") {
+                    showMessage("Welcome Admin! Redirecting...", "success");
+                    setTimeout(() => window.location.href = "admin.html", 1000);
+                } else {
+                    showMessage("Access Pending: An administrator is reviewing your request. Please check back soon.");
+                }
+
+            } catch (err) {
+                showMessage(err.message);
+            }
+        });
+
+        /* ---------------- FORGOT PASSWORD ---------------- */
+        forgotBtn.onclick = async () => {
+            hideMessage();
+            if (!loginEmail.value) {
+                showMessage("Enter your email first.");
+                return;
+            }
+
+            try {
+                await sendPasswordResetEmail(auth, loginEmail.value);
+                showMessage("Password reset email sent! (demo)", "success");
+            } catch (err) {
+                showMessage(err.message);
+            }
+        };
+
+        /* ---------------- SIGN UP ---------------- */
+        signupForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            hideMessage();
+
+            if (signupPassword.value !== confirmPassword.value) {
+                showMessage("Passwords do not match.");
+                return;
+            }
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(
+                    auth,
+                    signupEmail.value,
+                    signupPassword.value
+                );
+                const uid = userCredential.user.uid;
+
+                await setDoc(doc(db, "users", uid), {
+                    name: fullName.value,
+                    email: signupEmail.value,
+                    role: "player",
+                    createdAt: serverTimestamp()
+                });
+
+                showMessage("Account created successfully! You can now sign in.", "success");
+
+                signupForm.reset();
+            } catch (err) {
+                showMessage(err.message);
+            }
+        });
+
+    </script>
+</body>
+
+</html>
