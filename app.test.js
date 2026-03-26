@@ -23,9 +23,15 @@ Object.entries(testMap).forEach(([folder, files]) => {
                 expect(htmlContent).toMatch(/<html lang="en">/i);
             });
 
-            test('HTML Syntax: Brackets < > must be balanced', () => {
-                const opening = (htmlContent.match(/</g) || []).length;
-                const closing = (htmlContent.match(/>/g) || []).length;
+            test('HTML Syntax: Brackets < > must be balanced (Ignoring JS Logic)', () => {
+
+                const pureHTML = htmlContent
+                    .replace(/<script[\s\S]*?<\/script>/gi, '')
+                    .replace(/<style[\s\S]*?<\/style>/gi, '');
+
+                const opening = (pureHTML.match(/</g) || []).length;
+                const closing = (pureHTML.match(/>/g) || []).length;
+
                 expect(opening).toBe(closing);
             });
 
